@@ -29,9 +29,10 @@ html,body{
 input,button,textarea{font-family:inherit;}
 
 button{cursor: pointer; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-webkit-tap-highlight-color: transparent;}
+-webkit-tap-highlight-color: transparent;}
 button::-moz-focus-inner {padding:0;border:0;}
-a, a:visited{text-decoration: none;color: inherit;}
+a, a:visited{text-decoration: none;color: inherit; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+-webkit-tap-highlight-color: transparent;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
@@ -70,6 +71,10 @@ body{
 	font-size: 12px;
 	text-transform: uppercase;
 	color: $black;
+	position: fixed;
+	width: 100%;
+	background-color: $white;
+	z-index: 10;
 	&__inner{
 		display: flex;
 		justify-content: space-between;
@@ -135,7 +140,7 @@ body{
 //Mobile-menu
 .mobile-menu{
 	width: 300px;
-	background-color: #fff;
+	background-color: $grey;
 	position: fixed;
 	top: 0;
 	right: -300px;
@@ -144,10 +149,10 @@ body{
 	padding-top: 100px;
 	transition: right 0.5s;
 	&__list li{
-		margin-bottom: 30px;
+		margin-bottom: 50px;
 	}
 	&__link{
-		font-size: 16px;
+		font-size: 14px;
 		padding: 3.89px 0;
 		letter-spacing: 2.4px;
 	}
@@ -162,6 +167,7 @@ body{
 //Intro
 .intro{
 	margin-bottom: 120px;
+	padding-top: 100px;
 	&__inner{
 		display: flex;
 		flex-wrap: wrap;
@@ -245,6 +251,9 @@ body{
 			width: 570px;
 			height: auto;
 		}
+	}
+	@media(max-width: 1024px){
+		margin-bottom: 80px;
 	}
 	@media(max-width: 900px){
 		&__title{
@@ -365,6 +374,7 @@ body{
 		margin-left: 12px;
 	}
 	@media(max-width: 1024px){
+		margin-bottom: 80px;
 		text-align: center;
 		&__inner{
 			flex-direction: column-reverse;
@@ -410,7 +420,6 @@ body{
 	}
 	&__item{
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		margin-top: 60px;
 	}
@@ -439,12 +448,12 @@ body{
 		color: $black;
 	}
 	@media(max-width: 1024px){
+		margin-bottom: 80px;
 		&__inner{
 			flex-direction: column;
+			justify-content: center;
 		}
 		&__item{
-			max-width: 800px;
-			justify-content: space-around;
 			margin-top: 30px;
 		}
 		&__title{
@@ -453,6 +462,7 @@ body{
 		&__text{
 			font-size: 20px;
 			max-width: 320px;
+			margin-left: 28px;
 		}
 		&__text2{
 			max-width: 320px;
@@ -468,9 +478,6 @@ body{
 		}
 		&__text2{
 			font-size: 18px;
-		}
-		&__item{
-			width: 100%;
 		}
 	}
 	@media(max-width: 768px){
@@ -488,6 +495,7 @@ body{
 		}
 		&__text{
 			font-size: 14px;
+			margin-left: 20px;
 		}
 		&__text2{
 			font-size: 14px;
@@ -604,6 +612,7 @@ body{
 		}
 	}
 	@media(max-width: 1024px){
+		margin-bottom: 80px;
 		&__content{
 			padding: 5% 0;
 		}
@@ -657,6 +666,15 @@ body{
 			font-size: 30px;
 		}
 	}
+	@media(max-width: 415px){
+		&__img{
+			width: 290px;
+		}
+		&__content{
+			width: 290px;
+			left: calc(50% - 145px);
+		}
+	}
 }
 //Contact
 .contact{
@@ -700,13 +718,22 @@ body{
 	&__confidential-text{
 		font-size: 14px;
 		color: $black;
+		margin-bottom: 21px;
+	}
+	&__submit-con{
+		position: relative;
+		width: 188px;
+	}
+	&__submit-con:hover &__arrow{
+		padding-left: 20px;
 	}
 	&__submit{
 		display: flex;
 		align-items: center;
+		text-transform: uppercase;
 		max-width: 221px;
-		margin-top: 22px;
 		padding: 24px 48px;
+		padding-right: 84px;
 		background-color: $black;
 		color: $white;
 		font-weight: 300;
@@ -714,17 +741,18 @@ body{
 		letter-spacing: 2.4px;
 		font-size: 12px;
 		font-weight: 300;
-		transition: background 0.3s linear;
+		cursor: pointer;
+		transition: all 0.3s linear;
+	}
+	&__arrow{
+		transition: all 0.3s linear;
+		position: absolute;
+		left: 152px;
+		bottom: 18px;
 	}
 	&__submit:hover{
 		background-color: #000;
-	}
-	&__submit:hover &__arr{
-		margin-left: 32px;
-	}
-	&__arr{
-		margin-left: 12px;
-		transition: all 0.5s;
+		padding-right: 104px;
 	}
 	&__photo{
 		margin-top: 22px;
@@ -753,13 +781,19 @@ body{
 		}
 		&__submit{
 			margin: 0 auto;
-			margin-top: 30px;
 			padding: 20px 35px;
+			padding-right: 65px;
+		}
+		&__arrow{
+			transition: all 0.3s linear;
+			position: absolute;
+			left: 152px;
+			bottom: 15px;
 		}
 	}
 	@media(max-width: 400px){
 		&__input{
-			max-width: 291px;
+			max-width: 100%;
 		}
 	}
 }
@@ -863,6 +897,9 @@ body{
 			margin: 0 auto;
 			margin-top: 30px;
 			text-align: center;
+		}
+		&__item:nth-child(3){
+			display: none;
 		}
 		&__social-icons{
 			text-align: center;

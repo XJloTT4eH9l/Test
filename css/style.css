@@ -105,6 +105,8 @@ a,
 a:visited {
   text-decoration: none;
   color: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
@@ -152,6 +154,10 @@ body {
   font-size: 12px;
   text-transform: uppercase;
   color: #333333;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
 }
 
 .header__inner {
@@ -224,7 +230,7 @@ body {
 
 .mobile-menu {
   width: 300px;
-  background-color: #fff;
+  background-color: #BDBDBD;
   position: fixed;
   top: 0;
   right: -300px;
@@ -237,11 +243,11 @@ body {
 }
 
 .mobile-menu__list li {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .mobile-menu__link {
-  font-size: 16px;
+  font-size: 14px;
   padding: 3.89px 0;
   letter-spacing: 2.4px;
 }
@@ -257,6 +263,7 @@ body {
 
 .intro {
   margin-bottom: 120px;
+  padding-top: 100px;
 }
 
 .intro__inner {
@@ -483,9 +490,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -707,6 +711,16 @@ body {
 .contact__confidential-text {
   font-size: 14px;
   color: #333333;
+  margin-bottom: 21px;
+}
+
+.contact__submit-con {
+  position: relative;
+  width: 188px;
+}
+
+.contact__submit-con:hover .contact__arrow {
+  padding-left: 20px;
 }
 
 .contact__submit {
@@ -716,9 +730,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-transform: uppercase;
   max-width: 221px;
-  margin-top: 22px;
   padding: 24px 48px;
+  padding-right: 84px;
   background-color: #333333;
   color: #fff;
   font-weight: 300;
@@ -726,24 +741,24 @@ body {
   letter-spacing: 2.4px;
   font-size: 12px;
   font-weight: 300;
-  -webkit-transition: background 0.3s linear;
-  -o-transition: background 0.3s linear;
-  transition: background 0.3s linear;
+  cursor: pointer;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.contact__arrow {
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  position: absolute;
+  left: 152px;
+  bottom: 18px;
 }
 
 .contact__submit:hover {
   background-color: #000;
-}
-
-.contact__submit:hover .contact__arr {
-  margin-left: 32px;
-}
-
-.contact__arr {
-  margin-left: 12px;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+  padding-right: 104px;
 }
 
 .contact__photo {
@@ -950,7 +965,12 @@ body {
     display: block;
   }
 
+  .intro {
+    margin-bottom: 80px;
+  }
+
   .about {
+    margin-bottom: 80px;
     text-align: center;
   }
 
@@ -965,17 +985,21 @@ body {
     margin-bottom: 30px;
   }
 
+  .tasks {
+    margin-bottom: 80px;
+  }
+
   .tasks__inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .tasks__item {
-    max-width: 800px;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
     margin-top: 30px;
   }
 
@@ -986,11 +1010,16 @@ body {
   .tasks__text {
     font-size: 20px;
     max-width: 320px;
+    margin-left: 28px;
   }
 
   .tasks__text2 {
     max-width: 320px;
     font-size: 20px;
+  }
+
+  .projects {
+    margin-bottom: 80px;
   }
 
   .projects__content {
@@ -1019,8 +1048,17 @@ body {
 
   .contact__submit {
     margin: 0 auto;
-    margin-top: 30px;
     padding: 20px 35px;
+    padding-right: 65px;
+  }
+
+  .contact__arrow {
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    position: absolute;
+    left: 152px;
+    bottom: 15px;
   }
 }
 
@@ -1064,6 +1102,10 @@ body {
     margin: 0 auto;
     margin-top: 30px;
     text-align: center;
+  }
+
+  .footer__item:nth-child(3) {
+    display: none;
   }
 
   .footer__social-icons {
@@ -1117,10 +1159,6 @@ body {
 
   .tasks__text2 {
     font-size: 18px;
-  }
-
-  .tasks__item {
-    width: 100%;
   }
 
   .tasks {
@@ -1252,6 +1290,7 @@ body {
 
   .tasks__text {
     font-size: 14px;
+    margin-left: 20px;
   }
 
   .tasks__text2 {
@@ -1278,6 +1317,15 @@ body {
   .projects__title {
     font-size: 30px;
   }
+
+  .projects__img {
+    width: 290px;
+  }
+
+  .projects__content {
+    width: 290px;
+    left: calc(50% - 145px);
+  }
 }
 
 @media (max-width: 410px) {
@@ -1296,6 +1344,6 @@ body {
 
 @media (max-width: 400px) {
   .contact__input {
-    max-width: 291px;
+    max-width: 100%;
   }
 }
